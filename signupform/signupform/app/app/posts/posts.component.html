@@ -1,0 +1,11 @@
+<p>
+  posts works!
+</p>
+<input [(ngModel)] = "item" (keyup.enter) = "addItem(item)">
+<br>
+{{item}}
+
+<ul *ngFor = "let item of itemList"> 
+    <li>{{item}}</li>
+</ul>
+<favorite></favorite>

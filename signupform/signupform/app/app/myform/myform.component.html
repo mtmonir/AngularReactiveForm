@@ -1,0 +1,35 @@
+<form [formGroup] = "form">
+    
+        <label for = "name">Name</label>
+        <input formControlName = "name"
+        id = "name"
+        class = "form-control"/>
+        <div *ngIf = "name.touched && name.invalid" class = "alert alert-danger"> 
+          <div *ngIf = "name.errors.required">Username is required.</div>
+          <div *ngIf = "name.errors.cannotContainSpace">Username can not contain space.</div>
+          <div *ngIf = "name.errors.minlength">Username must be more than 5 chars</div>
+       </div>
+     Example of Form Group
+     
+    <label for = "contact">Contact</label>
+        <div formGroupName = "contact">
+            <div class = "form-cotrol">
+                   
+                <input type = "checkbox"  formControlName = "email">Email
+              
+                <input type ="checkbox" formControlName = "phone"> Phone
+            </div>
+        </div>
+       <label for = "toic">Topic</label>
+    <input  (keyup.enter) = "addTopic(topic)" #topic>
+    <div>
+            <input type = "checkbox"  formControlName = "test"/>test
+        </div>
+    <ul class = "list-group-item"> 
+        <li *ngFor = "let topic of topics.controls; index as index" 
+        (click) = "deleteTopic(index)"> {{ topic.value }}  </li>
+   </ul>
+ <button class = "btn btn-primary">Submit</button>
+</form>
+{{ form.value | json}}
+
