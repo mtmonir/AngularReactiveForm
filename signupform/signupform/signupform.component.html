@@ -1,0 +1,20 @@
+<form [formGroup] = "form" >
+   <div class = "form-control">
+     <label for = "username">User Name</label>
+     <input
+      formControlName = "username"
+      type="text" 
+      name="username"/>
+    <div *ngIf = "form.get('username').touched && form.get('username').invalid"
+    class = "alert alert-dange">User Name is required</div>
+</div>
+<div class = "form-control">
+    <label for = "password">Password</label>
+     <input 
+     formControlName = "password"
+    type="text" 
+    name="password"/>
+    </div>
+    {{ form.value | json }}
+    <button class = "btn btn-primary" (click) = "onSubmit()">Login</button>
+</form>
